@@ -1,0 +1,28 @@
+<h1><?= $bookEntity->getTitle(); ?></h1>
+<h2>Information</h2>
+<p><?= $bookEntity->getInfo(); ?></p>
+
+<?php
+$form = $this->buyForm;
+$form->prepare();
+echo $this->form()->openTag($form);
+?>
+<div>
+    <?php echo $this->formLabel($form->get('email_address')); ?>
+</div>
+<div class="row">
+    <div class="form-group col-sm-4">
+        <?php echo $this->formInput($form->get('email_address')); ?>
+        <div class="error">
+            <?php echo $this->formElementErrors($form->get('email_address')); ?>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-sm-2">
+        <?php echo $this->formRow($form->get('csrf')); ?>
+        <?php echo $this->formSubmit($form->get('submit')); ?>
+      <a href="<?= $this->url('bookList') ?>">No Thanks</a>
+    </div>
+</div>
+</p>

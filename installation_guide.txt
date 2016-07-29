@@ -1,0 +1,32 @@
+
+
+1) DB script 
+
+ZendSkeletonApplication\data\sql\student_room.sql
+
+db name :  student_room
+
+
+2) db configuration :
+
+config/autoload/local.php
+
+please put ur local db configuration
+
+
+'dsn' => 'mysql:dbname=student_room;host=localhost',
+        'username' => 'root',
+        'password' => 'Password101',
+
+
+ 3) run the vagrant box
+
+ $vagrant up;vagrant provision;
+
+ 4) composer update
+
+	$ vagrant ssh;
+
+	 $ cd cd /var/www/zf/
+	# run the below command
+ 	$ php composer.phar update;

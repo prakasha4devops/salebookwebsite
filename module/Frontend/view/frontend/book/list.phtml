@@ -1,0 +1,22 @@
+<div class="container-fluid">
+    <h1>Books</h1>
+    <div class="row">
+    <?php
+    $bookEntities = $this->bookEntities;
+
+    foreach ($bookEntities as $bookEntity) :
+    $bookDetailsUrl = $this->url('bookDetail', ['book-id' => $bookEntity->getId()]);
+    $vistedFlag = '';
+    if($this->bookViewSession->offsetExists($bookEntity->getId())) {
+        $vistedFlag =' <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>';
+    }
+    ?>
+    <div class="col-md-12"> <p>
+                <h5><?php echo $bookEntity->getId() . '&nbsp;' .  $bookEntity->getTitle() ?><?=$vistedFlag?>: <a href="<?= $bookDetailsUrl ?>">More
+                    Info</a></h5></div>
+        <?php endforeach;
+        ?>
+    </div>
+</div>
+
+<a href="<?= $this->url('frontEndHome'); ?>">Return To The Home Page</a>

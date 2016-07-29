@@ -1,0 +1,57 @@
+<h1>Home Page</h1>
+<p>A Great Mr Men Book Website</p>
+
+<?php
+$i = 0;
+$viewDocument = 0;
+foreach ($this->bookViewSession as $bookId => $bookInfo):
+    if ($i == 0) :
+        $viewDocument = 1;
+        ?>
+        <p><strong>Books you have viewed:</strong></p>
+        <?php
+    endif;
+    $i++;
+    ?>
+    <p><?= $bookInfo ?></p>
+    <?php
+endforeach;
+?>
+
+<?php
+if ($viewDocument == 0) :
+    ?>
+    <p>You haven't viewed any books yet</p>
+<?php endif; ?>
+
+<?php if (count($this->orderEntities) > 0) : ?>
+<p>You have just bought:</p>
+<div class="row">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Order Id</th>
+            <th>Book Name</th>
+            <th>Email Address</th>
+            <th>Order Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php endif; ?>
+        <?php
+
+        foreach ($this->orderEntities as $orderEntity) :
+            ?>
+
+            <tr>
+                <td><?= $orderEntity->getId(); ?></td>
+                <td><?= $orderEntity->getBook()->getTitle(); ?></td>
+                <td><?= $orderEntity->getEmailAddress(); ?></td>
+                <td><?= $orderEntity->getOrderDate(); ?></td>
+            </tr>
+        <?php endforeach; ?>
+        <?php if (count($this->orderEntities) > 0) : ?>     </tbody>
+    </table>
+    <p>The full book will be sent to you shortly.</p><?php endif; ?>
+
+    <a href="<?= $this->url('bookList'); ?>">View The Book List</a>
