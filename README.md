@@ -2,10 +2,12 @@ Sale book website
 =======================
 
 Introduction
+
 PHP developer code test
 
-What are you building?
-
+-----------------------------
+What are you building? 
+----------------------
 We have a client who wants to build a new PHP web site for selling online Mr Men books. We have been given a limited amount of time to prototype a basic structure for the client. 
 The client has big expectations, and will want the site to be able to deal with high-traffic numbers, include a security model, plus look great and be integrated with a payment system. These are all future aspirations, but should be considered for the prototype even though they are not required at this stage.
 For this test try to keep it to 4 hours or less. This doesn’t have to be 100% complete, but obviously get as much in there as you can to show your capabilities.
@@ -17,7 +19,10 @@ The prototype site you will produce for this code test should have the following
   - A document preview page (details.html)
   -	The CSV file import script (books.csv)
 
+-----------------------------
 The basic user journey 
+-----------------------------
+
 The visitors typically land on the home page. They can click through to view the document list and then click on one or more of the document previews available. On the preview page if they like the document they can enter their email address, buy the document, and return to the home page. If they don’t like it they can return to the list page.
 
 Tasks we’d like you to carry out
@@ -53,9 +58,11 @@ Tasks we’d like you to carry out
     b.	Do a little extra to make the solution to perform faster, using caching, query optimisation or other methods to get the most out of the server performance we have.
 
     c.	Create an extra piece of functionality that gets the prototype slightly closer to the solution that they are looking for. We want to wow them so they give us the work, so the more functional it is, the more likely we’ll win the work.
-    What do we need from you?
-
-
+   
+   
+----------------------------- 
+  What do we need from you?
+ ----------------------------
 Once you have completed the task above, please provide the following documentation:
 
 1.	In your solution please take all necessary precautions as though this were a live environment. Make sure you have tested it and the functionality outlined has been tested.
