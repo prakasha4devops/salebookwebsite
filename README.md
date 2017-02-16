@@ -2,122 +2,52 @@ Sale book website
 =======================
 
 Introduction
-------------
-This is a simple,  sale book website application using the ZF2 MVC layer and module
-systems. This application is meant to be used as a starting place for those
-looking to get their feet wet with ZF2.
+PHP developer code test
+What are you building?
+We have a client who wants to build a new PHP web site for selling online Mr Men books. We have been given a limited amount of time to prototype a basic structure for the client. 
+The client has big expectations, and will want the site to be able to deal with high-traffic numbers, include a security model, plus look great and be integrated with a payment system. These are all future aspirations, but should be considered for the prototype even though they are not required at this stage.
+For this test try to keep it to 4 hours or less. This doesn’t have to be 100% complete, but obviously get as much in there as you can to show your capabilities.
+The basic prototype site structure
+The prototype site you will produce for this code test should have the following pages and scripts:
+•	A home page (home.html)
+•	A document list page (list.html)
+•	A document preview page (details.html)
+•	The CSV file import script (books.csv)
+The basic user journey 
+The visitors typically land on the home page. They can click through to view the document list and then click on one or more of the document previews available. On the preview page if they like the document they can enter their email address, buy the document, and return to the home page. If they don’t like it they can return to the list page.
 
-Installation using Composer
----------------------------
-
-The easiest way to create a new ZF2 project is to use [Composer](https://getcomposer.org/). If you don't have it already installed, then please install as per the [documentation](https://getcomposer.org/doc/00-intro.md).
-
-
-Create your new ZF2 project:
-
-    composer create-project -n -sdev zendframework/skeleton-application path/to/install
-
-
-
-### Installation using a tarball with a local Composer
-
-If you don't have composer installed globally then another way to create a new ZF2 project is to download the tarball and install it:
-
-1. Download the [tarball](https://github.com/zendframework/ZendSkeletonApplication/tarball/master), extract it and then install the dependencies with a locally installed Composer:
-
-        cd my/project/dir
-        curl -#L https://github.com/zendframework/ZendSkeletonApplication/tarball/master | tar xz --strip-components=1
-    
-
-2. Download composer into your project directory and install the dependencies:
-
-        curl -s https://getcomposer.org/installer | php
-        php composer.phar install
-
-If you don't have access to curl, then install Composer into your project as per the [documentation](https://getcomposer.org/doc/00-intro.md).
-
-Web server setup
-----------------
-
-### PHP CLI server
-
-The simplest way to get started if you are using PHP 5.4 or above is to start the internal PHP cli-server in the root
-directory:
-
-    php -S 0.0.0.0:8080 -t public/ public/index.php
-
-This will start the cli-server on port 8080, and bind it to all network
-interfaces.
-
-**Note:** The built-in CLI server is *for development only*.
-
-### Vagrant server
-
-This project supports a basic [Vagrant](http://docs.vagrantup.com/v2/getting-started/index.html) configuration with an inline shell provisioner to run the Skeleton Application in a [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
-
-1. Run vagrant up command
-
-    vagrant up
-
-2. Visit [http://localhost:8085](http://localhost:8085) in your browser
-
-Look in [Vagrantfile](Vagrantfile) for configuration details.
-
-### Apache setup
-
-To setup apache, setup a virtual host to point to the public/ directory of the
-project and you should be ready to go! It should look something like below:
-
-    <VirtualHost *:80>
-        ServerName zf2-app.localhost
-        DocumentRoot /path/to/zf2-app/public
-        <Directory /path/to/zf2-app/public>
-            DirectoryIndex index.php
-            AllowOverride All
-            Order allow,deny
-            Allow from all
-            <IfModule mod_authz_core.c>
-            Require all granted
-            </IfModule>
-        </Directory>
-    </VirtualHost>
-
-### Nginx setup
-
-To setup nginx, open your `/path/to/nginx/nginx.conf` and add an
-[include directive](http://nginx.org/en/docs/ngx_core_module.html#include) below
-into `http` block if it does not already exist:
-
-    http {
-        # ...
-        include sites-enabled/*.conf;
-    }
-
-
-Create a virtual host configuration file for your project under `/path/to/nginx/sites-enabled/zf2-app.localhost.conf`
-it should look something like below:
-
-    server {
-        listen       80;
-        server_name  zf2-app.localhost;
-        root         /path/to/zf2-app/public;
-
-        location / {
-            index index.php;
-            try_files $uri $uri/ @php;
-        }
-
-        location @php {
-            # Pass the PHP requests to FastCGI server (php-fpm) on 127.0.0.1:9000
-            fastcgi_pass   127.0.0.1:9000;
-            fastcgi_param  SCRIPT_FILENAME /path/to/zf2-app/public/index.php;
-            include fastcgi_params;
-        }
-    }
-
-Restart the nginx, now you should be ready to go!
-
-
-
+Tasks we’d like you to carry out
+1.	The site currently has no server-side code. This is your task, please take the html and make a prototype site. You’ll need to consider the following, but remember that this is your choice, do it the way you think is most effective:
+a.	Should I use a PHP framework?
+b.	Should I use a frontend framework?
+c.	What database should I use?
+2.	Design a simple database to store the document titles and documents.
+3.	Use this table to populate the pages of the site.
+4.	We want to track the visitor while on the site, so when the visitor clicks “More Info” against a document we want to store this in a session object.
+5.	When the visitor returns to the list page, the document they last viewed should have an asterisk (*) or some kind of visual marker next to it.
+6.	When a visitor returns to the home page without buying anything, the list of documents they have viewed so far should be displayed on the home page, again utilising the data in the session. This list should be all documents viewed, not just the last one.
+7.	If the visitor decides to buy the document, once they click “buy” they return to the home page.
+8.	The email address and document purchased should be stored in the database.
+9.	The home page should now detail which document the user has purchased.
+10.	Finally please do one or more of the following if you have time:
+a.	Show a little frontend flare by adding in some nice feature to make the prototype look better or have a slightly nicer interface.
+b.	Do a little extra to make the solution to perform faster, using caching, query optimisation or other methods to get the most out of the server performance we have.
+c.	Create an extra piece of functionality that gets the prototype slightly closer to the solution that they are looking for. We want to wow them so they give us the work, so the more functional it is, the more likely we’ll win the work.
+What do we need from you?
+Once you have completed the task above, please provide the following documentation:
+1.	In your solution please take all necessary precautions as though this were a live environment. Make sure you have tested it and the functionality outlined has been tested.
+2.	Please return a zip file containing the site as a whole, any SQL required to build the database and any installation instructions. 
+3.	Please provide a little information about the following to help us understand how you think:
+a.	Did you use a PHP framework? Please clarify why you chose your solution.
+Yes I used Zend Framework 2.  Rapid development and MVC  and object oriented framework.
+b.	Did you use a frontend framework? Please clarify why you chose your solution.
+Bootstrap 3  is most popular html/css framework. 
+c.	What database did you use? Please clarify why you chose your solution.
+I used mysql database. Relation database
+d.	What additions did you do if any, please provided a short description.
+e.	How long did the test take you?
+Tuesday – 2 hours  Wednesday-  1 hour Thursday – 1 hour 
+4.	If you have any questions please don’t hesitate to get in touch and we’ll do our best to help.
+Good luck!
 
 
