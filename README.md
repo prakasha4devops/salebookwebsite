@@ -62,7 +62,7 @@ Tasks we’d like you to carry out
    
 ----------------------------- 
   What do we need from you?
- ----------------------------
+----------------------------
  
 Once you have completed the task above, please provide the following documentation:
 
